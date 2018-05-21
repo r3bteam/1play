@@ -64,7 +64,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 	command = command.slice(PREFIX.length)
 
-	if (command === `play`) {
+	if (command === `p`) {
     
 		const voiceChannel = msg.member.voiceChannel;
         
@@ -170,7 +170,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 
 		}
     
-	} else if (command === `skip`) {
+	} else if (command === `s`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 
@@ -180,7 +180,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 
 		return undefined;
 
-	} else if (command === `stop`) {
+	} else if (command === `l`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 
@@ -192,7 +192,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 
 		return undefined;
 
-	} else if (command === `volume`) {
+	} else if (command === `v`) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 
@@ -212,7 +212,7 @@ Please provide a value to select one of the search results ranging from 1-10.
 
 		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
 
-	} else if (command === `queue`) {
+	} else if (command === `q`) {
 
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 
@@ -230,7 +230,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 
 		`);
 
-	} else if (command === `pause`) {
+	} else if (command === `pu`) {
 
 		if (serverQueue && serverQueue.playing) {
 
@@ -244,7 +244,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 
 		return msg.channel.send('There is nothing playing.');
 
-	} else if (command === `resume`) {
+	} else if (command === `r`) {
 
 		if (serverQueue && !serverQueue.playing) {
 
@@ -389,6 +389,9 @@ function play(guild, song) {
 
 }
 
+
+
+
 client.on('message', message => {
     var prefix = "1";
     
@@ -432,6 +435,5 @@ client.on('message', message => {
     }
     
      });
-
 
 client.login(process.env.BOT_TOKEN);
